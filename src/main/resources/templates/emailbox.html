@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Почтовый ящик</title>
+</head>
+<body>
+<header>
+    <span th:text="${session.cEmail}"></span>
+    <a th:href="@{/login}">Выйти</a>
+</header>
+<div>
+    <a th:href="@{/sender}">Написать письмо</a>
+</div>
+<h2>Входящие</h2>
+<div>
+<table>
+    <tr th:each="in:${inBox}">
+        <td th:utext="${in.getSender()}">...</td>
+        <td th:utext="${in.getTheme()}">...</td>
+        <td><a th:href="@{/email/{id}(id=${in.getId()})}">Открыть</a></td>
+    </tr>
+</table>
+</div>
+<br>
+<h2>Исходящие</h2>
+<div>
+    <table>
+        <tr th:each="out:${outBox}">
+            <td th:utext="${out.getReceiver()}">...</td>
+            <td th:utext="${out.getTheme()}">...</td>
+            <td><a th:href="@{/email/{id}(id=${out.getId()})}">Открыть</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
