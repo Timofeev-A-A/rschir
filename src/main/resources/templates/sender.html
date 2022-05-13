@@ -5,6 +5,13 @@
     <title>Отправка писем</title>
 </head>
 <body>
-
+<h1>Заполните форму отправки письма ниже</h1>
+<form th:action="@{/sender}" th:object="${sendForm}" method="post" id="sForm">
+    <span>Получатель: </span><input type='text' name='receiver' th:field="*{receiver}">@email.ru
+    <span>Тема письма: </span><input type='text' name='theme' th:field="*{theme}">
+    <span>Содержание письма: </span><br>
+    <textarea rows="20" cols="60" th:field="*{content}" form="sForm">...</textarea>
+    <input name="submit" type="submit" value="Отправить" />
+</form>
 </body>
 </html>

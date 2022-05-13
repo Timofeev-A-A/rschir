@@ -30,7 +30,7 @@ public class SigninController {
         }
         else {
             usersRepository.save(yrUser);
-            return "login";
+            return "redirect:/login";
         }
     }
 

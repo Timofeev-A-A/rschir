@@ -29,9 +29,11 @@ public class LoginController {
             Users checker = usersRepository.findByEmail(fUser.getEmail());
             if (Objects.equals(fUser.getPassword(), checker.getPassword())) {
                 session.setAttribute("cEmail", fUser.getEmail());
-                return "emailbox";
+                System.out.println("Logged in");
+                return "redirect:/emailbox";
             }
         }
-        return "index";
+        System.out.println("Not logged");
+        return "redirect:/index";
     }
 }

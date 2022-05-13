@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import ru.mirea.rschir.model.Mailbox;
 import ru.mirea.rschir.repository.MailboxRepository;
 
-import java.util.List;
-import java.util.Optional;
-
 @Controller
 public class EmailController {
 
@@ -19,11 +16,11 @@ public class EmailController {
 
     @GetMapping("/email/{mailId}")
     public String email(@PathVariable String mailId, Model model) {
-        Optional<Mailbox> oneMail = mailboxRepository.findById(mailId);
-        if (oneMail.isEmpty()) {
-            return "emailbox";
+        if (mailboxRepository.findById(mailId).isPresent()) {
+            Mailbox oneMail = mailboxRepository.findById(mailId).get();
+            model.addAttribute("oneMail",oneMail);
+            return "email";
         }
-        model.addAttribute("oneMail", oneMail);
-        return "email";
+        return "emailbox";
     }
 }

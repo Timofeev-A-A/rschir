@@ -5,6 +5,13 @@
     <title>E-mail</title>
 </head>
 <body>
-
+<header>
+    <a th:href="@{/emailbox}">Назад</a>
+</header>
+<div>
+    <p>Отправитель: <span th:text="${oneMail.getSender()}"></span></p>
+    <p>Тема: <span th:text="${oneMail.getTheme()}"></span></p>
+    <p th:text="${oneMail.getContent()}"></p>
+</div>
 </body>
 </html>
