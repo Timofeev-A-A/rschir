@@ -5,7 +5,7 @@
     <title>Авторизация</title>
 </head>
 <body>
-<h1>Авторизуйтесь как существующий пользователь</h1>
+<h2>Авторизуйтесь как существующий пользователь или <a th:href="@{/signin}">зарегистрируйтесь</a></h2>
 <form th:action="@{/login}" th:object="${logForm}" method="POST">
     <table>
         <tr>

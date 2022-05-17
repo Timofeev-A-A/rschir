@@ -5,7 +5,7 @@
     <title>Регистрация</title>
 </head>
 <body>
-<h1>Регистрация нового пользователя</h1>
+<h2>Зарегистрируйте нового пользователя или <a th:href="@{/login}">авторизуйтесь</a></h2>
 <form th:action="@{/signin}" th:object="${signForm}" method="POST">
     <table>
         <tr>
