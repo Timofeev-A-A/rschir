@@ -29,6 +29,7 @@ public class SenderController {
     public String SendMail(@ModelAttribute("sendForm") Mailbox sMail, HttpSession session) {
         sMail.setSender((String) session.getAttribute("cEmail"));
         mailboxRepository.save(sMail);
-        return "emailbox";
+        System.out.println("Mail sent");
+        return "redirect:/emailbox";
     }
 }

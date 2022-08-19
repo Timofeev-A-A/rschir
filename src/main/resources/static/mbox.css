@@ -1,0 +1,9 @@
+tr {
+    background-color: #40444B;
+    border-collapse: collapse;
+    margin-bottom: 6px;
+}
+td {
+    border-right: 6px solid #40444B;
+    border-left: 6px solid #40444B;
+}

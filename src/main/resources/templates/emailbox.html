@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Почтовый ящик</title>
-    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="stylesheet" th:href="@{/general.css}">
+    <link rel="stylesheet" th:href="@{/mbox.css}">
 </head>
 <body>
 <header>
-    <span th:text="${session.cEmail}"></span>
+    <span th:text="${session.cEmail}"></span>@email.ru
     <a th:href="@{/login}">Выйти</a>
 </header>
 <div>
@@ -16,6 +17,11 @@
 <h2>Входящие</h2>
 <div>
 <table>
+    <tr>
+        <td>Отправитель</td>
+        <td>Тема</td>
+        <td></td>
+    </tr>
     <tr th:each="in:${inBox}">
         <td th:utext="${in.getSender()}">...</td>
         <td th:utext="${in.getTheme()}">...</td>
@@ -27,6 +33,11 @@
 <h2>Исходящие</h2>
 <div>
     <table>
+        <tr>
+            <td>Получатель</td>
+            <td>Тема</td>
+            <td></td>
+        </tr>
         <tr th:each="out:${outBox}">
             <td th:utext="${out.getReceiver()}">...</td>
             <td th:utext="${out.getTheme()}">...</td>

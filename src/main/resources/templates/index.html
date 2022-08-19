@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Почтовый клиент</title>
+    <link rel="stylesheet" th:href="@{/general.css}">
 </head>
 <body>
 <h1>Добро пожаловать в "Почтовый клиент"</h1>
 <p>Авторизуйтесь, чтобы начать писать письма другим пользователям.</p>
 <br>
 <div>
-    <a th:href="@{/login}">Войти</a>
-    <a th:href="@{/signin}">Зарегистрироваться</a>
+    <a class="btn" th:href="@{/login}">Войти</a>
+    <a class="btn" th:href="@{/signin}">Зарегистрироваться</a>
 </div>
 </body>
 </html>
